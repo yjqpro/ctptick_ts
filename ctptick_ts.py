@@ -1,12 +1,12 @@
-﻿# !/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import sys
 import os
-import h5py
+#  import h5py
 import pandas as pd
-import tstables as ts
 import tables
+import tstables as ts
 
 #from WindPy import *
 
@@ -25,7 +25,7 @@ class Tick(tables.IsDescription):
 
 
 def process_csv(month):
-    root = 'd:/BaiduNetdiskDownload/FutAC_TickKZ_CTP_Daily_{}'.format(month)
+    root = 'd:/datas/ctp/FutAC_TickKZ_CTP_Daily_{}'.format(month)
     with tables.open_file('d:/ts_futures.h5','a') as hdf_file:
         for d in os.listdir(root):
             if not hdf_file.__contains__('/{}'.format(d)):
